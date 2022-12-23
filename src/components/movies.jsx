@@ -4,12 +4,32 @@ import Movie from "./movie";
 class Movies extends Component {
   state = {
     movies: [
-      { id: 1, value: "The Godfather", year: 1972, grade: 9.2 },
-      { id: 2, value: "Star Wars", year: 1977, grade: 8.6 },
-      { id: 3, value: "The Usual Suspects", year: 1995, grade: 8.5 },
-      { id: 4, value: "Jurassic Park", year: 1993, grade: 8.1 },
+      {
+        id: this.getRandomInt(),
+        value: "The Godfather",
+        year: 1972,
+        grade: 9.2,
+      },
+      { id: this.getRandomInt(), value: "Star Wars", year: 1977, grade: 8.6 },
+      {
+        id: this.getRandomInt(),
+        value: "The Usual Suspects",
+        year: 1995,
+        grade: 8.5,
+      },
+      {
+        id: this.getRandomInt(),
+        value: "Jurassic Park",
+        year: 1993,
+        grade: 8.1,
+      },
     ],
   };
+
+  //Generate a somewhat random key ID value
+  getRandomInt() {
+    return Math.floor(Math.random() * Math.floor(1000000));
+  }
 
   //Get user input from popup
   getUserInput() {
@@ -44,7 +64,7 @@ class Movies extends Component {
 
     // Add new movie to array
     movies.push({
-      id: movies.length + 1,
+      id: this.getRandomInt(),
       value: input[0],
       year: input[1],
       grade: input[2],
